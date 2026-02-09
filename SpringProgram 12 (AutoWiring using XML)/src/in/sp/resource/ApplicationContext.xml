@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+<!--when we use autowired we will pass same variable name as id for bean object e.g-> address      -->
+  <bean class="in.sp.beans.Address" id = "address">
+     <property name="houseno" value = "121" />
+     <property name="city" value = "Nashik" />
+     <property name="pincode" value = "422209" />
+  </bean>
+  
+  <bean class="in.sp.beans.Student" id = "stdd" autowire="byName" > <!-- by name use internally setter method  -->
+     <property name="name" value = "Pranit" />
+     <property name="rollno" value = "21" />
+       <!-- <property name="address" ref="addr" />   -->  
+  </bean>
+</beans>
