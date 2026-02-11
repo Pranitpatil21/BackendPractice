@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<bean class="in.sp.beans.Address" id="addr1" autowire-candidate="false">
+		<constructor-arg value="11" />
+		<constructor-arg value="Pune" />
+		<constructor-arg value="201" />
+	</bean>
+
+	<bean class="in.sp.beans.Address" id="addr2" >
+		<constructor-arg value="14" />
+		<constructor-arg value="nashik" />
+		<constructor-arg value="22" />
+	</bean>
+
+	<bean class="in.sp.beans.Student" id="stdd" autowire="constructor"> <!--it mathces data type if matches then it do autowiring otherwise No for 
+			eg we have data type Address it check in student class -->
+		<constructor-arg value="Pranit" index="0" />
+		<constructor-arg value="21" index="1" />
+	</bean>
+</beans>
