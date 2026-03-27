@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+  <bean class="in.sp.beans.Address" id = "addr1">
+     <property name="houseno" value = "121" />
+     <property name="city" value = "Nashik" />
+     <property name="pincode" value = "422209" />
+  </bean>
+  
+<!-- We will get error when we have two address objects to solve that we use autowire-candiadte = "false" means it will not particiapate in autowireing -->
+<!-- same issue also happening in annotation case at that time we have used Qualifire  -->
+  <bean class="in.sp.beans.Address" id = "addr2" autowire-candidate="false" >
+     <property name="houseno" value = "112" />
+     <property name="city" value = "delhi" />
+     <property name="pincode" value = "411033" />
+  </bean>
+  
+  <!-- bytype also calls setter method -->
+  
+  <bean class="in.sp.beans.Student" id = "stdd" autowire="byType" > <!--it mathces data type if matches then it do autowiring otherwise No for eg we have data type Address it check in student class -->
+     <property name="name" value = "Pranit" />
+     <property name="rollno" value = "21" />
+       <!-- <property name="address" ref="addr" />   -->  
+  </bean>
+</beans>
