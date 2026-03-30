@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd"> <!-- bean definitions here -->
+ 
+  <!--Scan the package in which controllers are created  -->
+   <context:component-scan base-package="in.sp.main" />
+
+
+
+	<!--Handler Mapping this will return the controller name -->
+	<!--HOW TO GET THIS cntrl + shift + t search requestmapping copy importfile 
+		then put dot and class name -->
+    <!--we commented beccause it is default  -->
+<!-- 	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"></bean> -->
+
+    <!--View resolver this will return the file location	  -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+
+		<property name="prefix" value="/WEB-INF/views/" />        <!--hello file  location -->
+		<property name="suffix" value=".jsp" />                   <!--.jsp file extenssion -->
+
+	</bean>
+</beans>
